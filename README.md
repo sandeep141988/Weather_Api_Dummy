@@ -6,8 +6,7 @@ MVVM Architecture: The app follows the MVVM (Model-View-ViewModel) architecture,
 Retrofit2: A popular HTTP clinet for Android, to make API call, this ensures efficient communication with the backend server.  
 Glide Library Popular library used to display images.  
 **App module**  
-App module consists of presentation layer like Activity, Screen and ViewModel.  ![weather_app_screenshot](https://github.com/user-attachments/assets/5acb125f-aa0b-4a67-957f-182b2886e0ab)
-
-
+App module consists of presentation layer like Activity, Screen and ViewModel.    
 **Images**
+![weather_app_screenshot](https://github.com/user-attachments/assets/08a765f6-6d7a-44b5-8b04-93de8c3cc3dd)
 
