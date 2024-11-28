@@ -1,4 +1,4 @@
-package com.example.weather_api_dummy.weather.utils
+package com.example.weather_api_dummy.core.data.utils
 
 import android.Manifest
 import android.content.Context
@@ -41,5 +41,5 @@ object PermissionUtils {
                 || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
     }
 
-    const val DEFAULT_LOCATION = "England"
+
 }

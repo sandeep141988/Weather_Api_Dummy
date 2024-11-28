@@ -1,4 +1,4 @@
-package com.example.weather_api_dummy.weather.view
+package com.example.weather_api_dummy.features.weather.view
 
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -7,15 +7,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.weather_api_dummy.core.data.utils.LOCATION_PERMISSION_REQUEST_CODE
+import com.example.weather_api_dummy.core.data.utils.PERMISSION_DENIED_MESSAGE
+import com.example.weather_api_dummy.core.data.utils.PermissionUtils
 import com.example.weather_api_dummy.databinding.ActivityMainBinding
-import com.example.weather_api_dummy.weather.utils.PermissionUtils
-import com.example.weather_api_dummy.weather.viewmodel.WeatherViewModel
+import com.example.weather_api_dummy.features.weather.viewmodel.WeatherViewModel
 
-
-private const val LOCATION_PERMISSION_REQUEST_CODE =34
 
 class WeatherScreenActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     private val weatherViewModel: WeatherViewModel by viewModels()
 
 
@@ -39,6 +39,7 @@ class WeatherScreenActivity : AppCompatActivity() {
                     }
                 }
             }
+
             else -> {
                 PermissionUtils.requestAccessFineLocationPermission(
                     this,
@@ -83,7 +84,7 @@ class WeatherScreenActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(
                         this,
-                        "Permission not granted",
+                        PERMISSION_DENIED_MESSAGE,
                         Toast.LENGTH_LONG
                     ).show()
                 }

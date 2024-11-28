@@ -18,7 +18,7 @@
         android:theme="@style/Theme.Weather_Api_Dummy"
         tools:targetApi="31">
         <activity
-            android:name=".weather.view.WeatherScreenActivity"
+            android:name=".features.weather.view.WeatherScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

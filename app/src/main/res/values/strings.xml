@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Weather_Api_Dummy</string>
+    <string name="city_text">City</string>
+    <string name="country_text">Country</string>
+    <string name="temperature_unit">℃</string>
+    <string name="weather_condition">Condition</string>
+    <string name="weather_description">Description</string>
+    <string name="loading_message">Loading data. Please wait…</string>
 </resources>

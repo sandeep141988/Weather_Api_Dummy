@@ -1,4 +1,4 @@
-package com.example.weather_api_dummy.weather.viewmodel
+package com.example.weather_api_dummy.features.weather.viewmodel
 
 import android.annotation.SuppressLint
 import android.app.Application
@@ -14,9 +14,9 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.weather_api_dummy.weather.network.ApiInterface
-import com.example.weather_api_dummy.weather.network.RetrofitClient
-import com.example.weather_api_dummy.weather.utils.PermissionUtils.DEFAULT_LOCATION
+import com.example.weather_api_dummy.core.data.network.ApiInterface
+import com.example.weather_api_dummy.core.data.network.RetrofitClient
+import com.example.weather_api_dummy.core.data.utils.DEFAULT_LOCATION
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
@@ -41,7 +41,12 @@ class WeatherViewModel(application: Application) : AndroidViewModel(application)
 
     fun loadWeather() {
         viewModelScope.launch {
-            if (isNetworkAvailable()) {
+            if (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    isNetworkAvailable()
+                } else {
+                    TODO("VERSION.SDK_INT < M")
+                }
+            ) {
                 weatherApi()
             }
         }
@@ -87,7 +92,7 @@ class WeatherViewModel(application: Application) : AndroidViewModel(application)
                     val long = currentLocation!!.longitude
                     val geocoder = Geocoder(getApplication(), Locale.getDefault())
                     val addresses: MutableList<Address>? = geocoder.getFromLocation(lat, long, 1)
-                 //   cityName.value = addresses?.get(0)?.getAddressLine(0) ?: " nodata"
+                    //   cityName.value = addresses?.get(0)?.getAddressLine(0) ?: " nodata"
                 }
             },
             Looper.myLooper()!!
